@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class LoginPage {
 	
@@ -16,11 +18,12 @@ public class LoginPage {
 		this.driver = driver;
 		
 	}
-	
+	@Test
 	public void enterUsername(String username)
 	{	
 		driver.findElement(usernameTextBox).clear();
 		driver.findElement(usernameTextBox).sendKeys(username);
+		Assert.assertEquals(driver.getTitle(), "Swag Labs");
 	}
 
 	public void enterPassword(String password)
